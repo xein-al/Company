@@ -1,0 +1,124 @@
+/* Animasi Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    animation: fadeIn 1s ease-in-out; /* Animasi halaman utuh */
+}
+
+/* Hero Section dengan Background Baru dan Animasi */
+.hero { 
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%); /* Gradient hijau-biru segar */
+    color: white; 
+    position: relative; 
+    padding: 100px 0; 
+    animation: fadeIn 2s ease-in-out; /* Fade-in lambat */
+}
+.hero::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0; left: 0; right: 0; bottom: 0; 
+    background: rgba(0, 0, 0, 0.3); /* Overlay lebih ringan untuk kontras */
+    z-index: 1; 
+}
+.hero .container { 
+    position: relative; 
+    z-index: 2; 
+    animation: slideInLeft 1.5s ease-out 0.5s both; /* Slide-in dari kiri */
+}
+.hero h1 { animation: fadeIn 2.5s ease-out 1s both; }
+.hero p { animation: fadeIn 3s ease-out 1.5s both; }
+
+/* Services Section dengan Animasi Kartu */
+#services .card { 
+    margin-bottom: 20px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover efek */
+}
+#services .card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+}
+#services .row > div:nth-child(1) { animation: slideInLeft 1s ease-out 0.5s both; }
+#services .row > div:nth-child(2) { animation: fadeIn 1.5s ease-out 1s both; }
+#services .row > div:nth-child(3) { animation: slideInRight 1s ease-out 0.5s both; }
+
+/* About Section */
+#about { 
+    background: linear-gradient(to right, #f8f9fa, #e9ecef); 
+    animation: fadeIn 1s ease-in-out; 
+}
+
+/* Contact Section */
+#contact { 
+    animation: slideInRight 1s ease-out 0.5s both; 
+}
+#contact form { 
+    animation: fadeIn 1.5s ease-out 1s both; 
+}
+
+/* Chatbot dengan Animasi */
+.chatbot { 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    width: 300px; 
+    height: 400px; 
+    background: white; 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    display: none; 
+    z-index: 1000; 
+    animation: slideInRight 0.5s ease-out; /* Slide-in saat muncul */
+}
+.chatbot-header { 
+    background: #4facfe; /* Sesuai gradient baru */
+    color: white; 
+    padding: 10px; 
+    border-radius: 10px 10px 0 0; 
+    cursor: pointer; 
+    transition: background 0.3s ease; 
+}
+.chatbot-header:hover { background: #00f2fe; }
+.chat-messages { height: 300px; overflow-y: auto; padding: 10px; }
+#chat-input { 
+    width: 100%; 
+    padding: 10px; 
+    border: none; 
+    border-top: 1px solid #ccc; 
+    transition: border-color 0.3s ease; 
+}
+#chat-input:focus { border-color: #4facfe; }
+.open-chat-btn { 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    background: linear-gradient(135deg, #4facfe, #00f2fe); 
+    color: white; 
+    border: none; 
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+    font-size: 20px; 
+    cursor: pointer; 
+    z-index: 1001; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.open-chat-btn:hover { 
+    transform: scale(1.1); 
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4); 
+}
